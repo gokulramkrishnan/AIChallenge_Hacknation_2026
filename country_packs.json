@@ -1,0 +1,122 @@
+{
+  "ghana": {
+    "name": "Ghana",
+    "flag": "🇬🇭",
+    "region": "Sub-Saharan Africa · Urban informal",
+    "currency": "GHS",
+    "language": "en",
+    "dataSource": "ILO ILOSTAT 2023 · World Bank WDI 2024",
+    "laborSignals": {
+      "informalityRate": 78,
+      "wageSalariedShare": 32,
+      "youthUnemployment": 12.1,
+      "neetShare": 24.3,
+      "gdpPerCapita": 2363,
+      "mobileInternetPenetration": 42
+    },
+    "educationTaxonomy": {
+      "basic": "JHS Certificate",
+      "secondary": "WASSCE / SSSCE",
+      "vocational": "TVET Certificate",
+      "tertiary": "HND / Bachelor's"
+    },
+    "automationCalibration": {
+      "note": "Physical repair and interpersonal tasks have lower automation risk due to infrastructure constraints limiting digital substitution.",
+      "factor": 0.85
+    },
+    "opportunityTypes": ["formal job", "gig", "self-employment", "TVET training", "apprenticeship"],
+    "wageFloor": "GHS 14.88/day (National Daily Minimum Wage 2024)",
+    "growthSectors": ["ICT services", "agritech", "informal trade"],
+    "wittgensteinProjection": "Secondary+ attainment: 42% → 61% by 2035"
+  },
+  "kenya": {
+    "name": "Kenya",
+    "flag": "🇰🇪",
+    "region": "East Africa · Mixed urban/peri-urban",
+    "currency": "KES",
+    "language": "en",
+    "dataSource": "ILO ILOSTAT 2023 · World Bank WDI 2024",
+    "laborSignals": {
+      "informalityRate": 73,
+      "wageSalariedShare": 29,
+      "youthUnemployment": 13.8,
+      "neetShare": 21.7,
+      "gdpPerCapita": 2081,
+      "mobileInternetPenetration": 58
+    },
+    "educationTaxonomy": {
+      "basic": "KPSEA Certificate",
+      "secondary": "KCSE",
+      "vocational": "TVET Certificate",
+      "tertiary": "Diploma / Bachelor's"
+    },
+    "automationCalibration": {
+      "note": "Higher mobile penetration (58%) increases digital substitution risk for routine service tasks vs. West African contexts.",
+      "factor": 1.0
+    },
+    "opportunityTypes": ["formal job", "gig / M-Pesa economy", "self-employment", "TVET training"],
+    "wageFloor": "KES 15,201/month (Minimum Wage 2024)",
+    "growthSectors": ["fintech", "mobile services", "logistics", "agritech"],
+    "wittgensteinProjection": "Secondary+ attainment: 51% → 67% by 2035"
+  },
+  "bangladesh": {
+    "name": "Bangladesh",
+    "flag": "🇧🇩",
+    "region": "South Asia · Rural/peri-urban",
+    "currency": "BDT",
+    "language": "bn",
+    "dataSource": "ILO ILOSTAT 2023 · BBS LFS 2022 · World Bank WDI 2024",
+    "laborSignals": {
+      "informalityRate": 85,
+      "wageSalariedShare": 45,
+      "youthUnemployment": 11.4,
+      "neetShare": 31.2,
+      "gdpPerCapita": 2688,
+      "mobileInternetPenetration": 38
+    },
+    "educationTaxonomy": {
+      "basic": "PSC Certificate",
+      "secondary": "SSC (Secondary School Certificate)",
+      "vocational": "BTEB Certificate",
+      "tertiary": "Degree / Honours"
+    },
+    "automationCalibration": {
+      "note": "Garment sector dominance (38% of female employment) creates specific automation exposure clusters. Rural agricultural informality lowers average risk.",
+      "factor": 1.1
+    },
+    "opportunityTypes": ["formal factory employment", "microenterprise", "NGO programs", "skills training"],
+    "wageFloor": "BDT 12,500/month RMG sector (2024)",
+    "growthSectors": ["RMG", "digital services", "agriprocessing"],
+    "wittgensteinProjection": "Secondary+ attainment: 38% → 55% by 2035"
+  },
+  "nigeria": {
+    "name": "Nigeria",
+    "flag": "🇳🇬",
+    "region": "West Africa · Urban informal",
+    "currency": "NGN",
+    "language": "en",
+    "dataSource": "ILO ILOSTAT 2023 · NBS 2023 · World Bank WDI 2024",
+    "laborSignals": {
+      "informalityRate": 80,
+      "wageSalariedShare": 22,
+      "youthUnemployment": 33.3,
+      "neetShare": 28.1,
+      "gdpPerCapita": 2184,
+      "mobileInternetPenetration": 45
+    },
+    "educationTaxonomy": {
+      "basic": "FSLC",
+      "secondary": "WAEC/SSCE",
+      "vocational": "NABTEB / Trade Certificate",
+      "tertiary": "OND / HND / B.Sc"
+    },
+    "automationCalibration": {
+      "note": "Very low wage-salaried share (22%) and high youth unemployment — informal self-employment is primary buffer against automation displacement.",
+      "factor": 0.9
+    },
+    "opportunityTypes": ["self-employment", "tech startup ecosystem", "gig economy", "vocational training"],
+    "wageFloor": "NGN 70,000/month (National Minimum Wage 2024)",
+    "growthSectors": ["tech/fintech", "entertainment", "agriculture", "informal trade"],
+    "wittgensteinProjection": "Secondary+ attainment: 35% → 52% by 2035"
+  }
+}

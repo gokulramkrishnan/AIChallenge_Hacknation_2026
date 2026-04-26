@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>UNMAPPED — World Bank Youth Summit Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --gold: #F0C040; --teal: #00B4A0; --red: #FF6B6B;
+  --green: #4ADE80; --purple: #A78BFA;
+  --bg: #070D1A; --s1: #0D1626; --s2: #131C30;
+  --text: #E8EFF8; --muted: #6B82A8; --dim: #3A4E6A;
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+.deck { width: 100%; }
+
+.slide {
+  min-height: 100vh;
+  padding: 64px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 2px solid rgba(255,255,255,0.04);
+  position: relative;
+  page-break-after: always;
+}
+
+.slide-num {
+  position: absolute; top: 28px; right: 36px;
+  font-size: 12px; color: var(--dim); font-family: 'DM Mono', monospace;
+  letter-spacing: 0.1em;
+}
+.co-brand {
+  position: absolute; top: 28px; left: 36px;
+  font-size: 11px; color: var(--dim); letter-spacing: 0.12em;
+}
+
+.logo { font-size: 14px; font-weight: 800; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 6px; }
+.tag { display: inline-block; background: rgba(240,192,64,0.12); color: var(--gold); border: 1px solid rgba(240,192,64,0.25); border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; margin-bottom: 20px; }
+.teal-tag { background: rgba(0,180,160,0.12); color: var(--teal); border-color: rgba(0,180,160,0.25); }
+.purple-tag { background: rgba(167,139,250,0.12); color: var(--purple); border-color: rgba(167,139,250,0.25); }
+
+h1 { font-size: 52px; font-weight: 800; line-height: 1.1; margin-bottom: 16px; }
+h2 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
+h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.lead { font-size: 20px; color: var(--muted); line-height: 1.6; max-width: 680px; }
+.body { font-size: 16px; color: #8899BB; line-height: 1.7; max-width: 700px; }
+
+.gold { color: var(--gold); }
+.teal { color: var(--teal); }
+.red { color: var(--red); }
+.green { color: var(--green); }
+.purple { color: var(--purple); }
+.muted { color: var(--muted); }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+
+.card {
+  background: var(--s1);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 28px;
+}
+.card.gold-border { border-color: rgba(240,192,64,0.25); }
+.card.teal-border { border-color: rgba(0,180,160,0.2); }
+.card.red-border { border-color: rgba(255,107,107,0.2); }
+
+.big-num { font-size: 56px; font-weight: 800; line-height: 1; margin-bottom: 8px; }
+.label { font-size: 12px; color: var(--muted); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+.sub { font-size: 14px; color: #5A7090; line-height: 1.6; margin-top: 8px; }
+
+.bar-wrap { height: 6px; background: rgba(255,255,255,0.07); border-radius: 4px; overflow: hidden; margin: 8px 0; }
+.bar { height: 100%; border-radius: 4px; }
+
+.step { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 24px; }
+.step-num { width: 36px; height: 36px; border-radius: 50%; background: rgba(240,192,64,0.15); border: 1px solid rgba(240,192,64,0.3); display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--gold); font-size: 14px; flex-shrink: 0; }
+
+.module { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 20px; padding: 16px; background: var(--s2); border-radius: 12px; }
+.module-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+
+.slide-cover { background: linear-gradient(145deg, #0A1225 0%, #070D1A 50%, #0D0A1A 100%); }
+.slide-cover::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(240,192,64,0.05) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(0,180,160,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.quote {
+  font-size: 22px; line-height: 1.5; color: #A8B8CC; font-style: italic;
+  border-left: 3px solid var(--gold); padding-left: 24px; margin: 24px 0;
+  max-width: 600px;
+}
+
+.signal-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.signal-row:last-child { border-bottom: none; }
+
+.passport-preview {
+  background: linear-gradient(135deg, #0D1A35, #0A2040);
+  border: 1px solid rgba(240,192,64,0.3);
+  border-radius: 20px;
+  padding: 28px;
+}
+
+@media print {
+  .slide { page-break-after: always; min-height: 100vh; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- SLIDE 1: COVER -->
+<div class="slide slide-cover">
+  <div class="co-brand">WORLD BANK YOUTH SUMMIT · MIT CLUB COLLABORATION</div>
+  <div class="slide-num">01 / 10</div>
+
+  <div class="logo">UNMAPPED</div>
+  <div class="tag">Open Skills Infrastructure · LMIC Youth</div>
+
+  <h1>Closing the distance<br />between <span class="gold">real skills</span><br />and real opportunity.</h1>
+
+  <p class="lead" style="margin-top: 20px;">
+    A config-driven skills infrastructure layer that turns invisible youth capability into portable economic signals — powered by real labor market data.
+  </p>
+
+  <div style="margin-top: 48px; display: flex; gap: 32px; align-items: center; flex-wrap: wrap;">
+    <div>
+      <div class="big-num gold">600M+</div>
+      <div class="label">Youth with unrecognized skills</div>
+    </div>
+    <div style="width: 1px; height: 60px; background: rgba(255,255,255,0.08);"></div>
+    <div>
+      <div class="big-num" style="color: var(--teal);">3</div>
+      <div class="label">Structural failures addressed</div>
+    </div>
+    <div style="width: 1px; height: 60px; background: rgba(255,255,255,0.08);"></div>
+    <div>
+      <div class="big-num" style="color: var(--purple);">4</div>
+      <div class="label">Country packs ready</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 2: THE PROBLEM -->
+<div class="slide">
+  <div class="co-brand">WORLD BANK YOUTH SUMMIT</div>
+  <div class="slide-num">02 / 10</div>
+
+  <div class="tag">The Problem</div>
+  <h2>Three structural failures. One broken system.</h2>
+
+  <div class="grid-3" style="margin-top: 32px;">
+    <div class="card red-border">
+      <div class="label" style="color: var(--red);">01 · Broken signals</div>
+      <h3>Credentials don't translate</h3>
+      <p class="sub">A secondary certificate tells an employer almost nothing meaningful. Informal skills are entirely invisible to the formal economy.</p>
+    </div>
+    <div class="card" style="border-color: rgba(240,192,64,0.2);">
+      <div class="label gold">02 · AI disruption</div>
+      <h3>Automation without readiness</h3>
+      <p class="sub">Jobs held by young LMIC workers face the highest displacement risk. Youth have no tools to understand or navigate this shift.</p>
+    </div>
+    <div class="card teal-border">
+      <div class="label" style="color: var(--teal);">03 · No matching infrastructure</div>
+      <h3>Connective tissue is absent</h3>
+      <p class="sub">Even where skills and jobs coexist, matching happens through informal networks that exclude the most vulnerable youth.</p>
+    </div>
+  </div>
+
+  <div class="quote" style="margin-top: 40px;">
+    "To the formal economy, Amara is unmapped. She is not the exception — she is the rule."
+  </div>
+</div>
+
+<!-- SLIDE 3: MEET AMARA -->
+<div class="slide">
+  <div class="co-brand">WORLD BANK YOUTH SUMMIT</div>
+  <div class="slide-num">03 / 10</div>
+
+  <div class="tag teal-tag">Our User</div>
+  <h2>Meet Amara.</h2>
+
+  <div class="grid-2" style="margin-top: 32px;">
+    <div>
+      <p class="body" style="margin-bottom: 20px;">
+        22 years old. Lives outside Accra. Holds a Secondary School Certificate. Speaks three languages. Has run a phone repair business since she was 17. Taught herself to code from YouTube on a shared mobile connection.
+      </p>
+      <p class="body" style="color: var(--gold);">
+        By any reasonable measure, Amara has real, marketable, portable skills. But no employer knows she exists. No training program has assessed what she already knows.
+      </p>
+
+      <div style="margin-top: 32px;">
+        {['Device Repair & Maintenance', 'Customer Interaction', 'Digital Literacy', 'Multilingual Communication', 'Business & Micro-enterprise'].map(s => s)}
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;">
+          <span class="tag teal-tag" style="margin-bottom: 0;">Device Repair</span>
+          <span class="tag teal-tag" style="margin-bottom: 0;">Customer Interaction</span>
+          <span class="tag teal-tag" style="margin-bottom: 0;">Digital Literacy</span>
+          <span class="tag teal-tag" style="margin-bottom: 0;">Multilingual</span>
+          <span class="tag teal-tag" style="margin-bottom: 0;">Micro-enterprise</span>
+        </div>
+        <div style="margin-top: 8px; font-size: 13px; color: var(--dim);">ESCO-mapped skills — portable across borders and sectors</div>
+      </div>
+    </div>
+
+    <div class="card gold-border">
+      <div class="label">Ghana Labor Market Context</div>
+      <div class="signal-row">
+        <span style="font-size: 14px; color: var(--muted);">Informality rate</span>
+        <span style="font-size: 18px; font-weight: 800; color: var(--red);">78%</span>
+      </div>
+      <div class="bar-wrap"><div class="bar" style="width: 78%; background: var(--red);"></div></div>
+      <div class="signal-row">
+        <span style="font-size: 14px; color: var(--muted);">Wage-salaried share</span>
+        <span style="font-size: 18px; font-weight: 800; color: var(--teal);">32%</span>
+      </div>
+      <div class="bar-wrap"><div class="bar" style="width: 32%; background: var(--teal);"></div></div>
+      <div class="signal-row">
+        <span style="font-size: 14px; color: var(--muted);">Youth NEET share</span>
+        <span style="font-size: 18px; font-weight: 800; color: var(--gold);">24.3%</span>
+      </div>
+      <div class="bar-wrap"><div class="bar" style="width: 24.3%; background: var(--gold);"></div></div>
+      <div class="signal-row">
+        <span style="font-size: 14px; color: var(--muted);">Mobile internet</span>
+        <span style="font-size: 18px; font-weight: 800; color: var(--purple);">42%</span>
+      </div>
+      <div class="bar-wrap"><div class="bar" style="width: 42%; background: var(--purple);"></div></div>
+      <div style="margin-top: 16px; font-size: 12px; color: var(--dim);">ILO ILOSTAT 2023 · World Bank WDI 2024</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4: THE SOLUTION -->
+<div class="slide">
+  <div class="co-brand">WORLD BANK YOUTH SUMMIT</div>
+  <div class="slide-num">04 / 10</div>
+
+  <div class="tag">The Solution</div>
+  <h2>Infrastructure, not just an app.</h2>
+  <p class="lead">UNMAPPED is a config-driven skills infrastructure layer — any government, NGO, training provider, or employer can plug into it. Country parameters are inputs, not assumptions.</p>
+
+  <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+    <div class="card gold-border">
+      <div class="module-icon" style="background: rgba(240,192,64,0.12); margin-bottom: 16px; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px;">◎</div>
+      <div class="label gold">Module 01</div>
+      <h3 class="gold">Skills Signal Engine</h3>
+      <p class="sub">Maps informal experience to ISCO-08 portable skills profile. Human-readable. Explainable. Owned by Amara — not just an AI.</p>
+    </div>
+    <div class="card" style="border-color: rgba(255,107,107,0.2);">
+      <div class="module-icon" style="background: rgba(255,107,107,0.1); margin-bottom: 16px; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px;">◉</div>
+      <div class="label red">Module 02</div>
+      <h3 class="red">AI Readiness Lens</h3>
+      <p class="sub">Honest automation risk assessment. Frey-Osborne scores, LMIC-adjusted. Shows durable vs. exposed skills. Calibrated per country context.</p>
+    </div>
+    <div class="card teal-border">
+      <div class="module-icon" style="background: rgba(0,180,160,0.1); margin-bottom: 16px; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px;">◈</div>
+      <div class="label" style="color: var(--teal);">Module 03</div>
+      <h3 class="teal">Opportunity Matching</h3>
+      <p class="sub">3 realistic, grounded pathways — not aspirational. Surfaces 2+ visible econometric signals per user. Dual interface: youth + policymaker.</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 32px; padding: 20px 24px; background: rgba(240,192,64,0.05); border: 1px solid rgba(240,192,64,0.15); border-radius: 14px; font-size: 16px; color: #A8B8CC; font-style: italic;">
+    "UNMAPPED is a config-driven skills infrastructure layer that turns invisible youth capability into portable signals and realistic opportunity paths using local data."
+  </div>
+</div>
+
+<!-- SLIDE 5: DATA GROUNDING -->
+<div class="slide">
+  <div class="co-brand">WORLD BANK YOUTH SUMMIT</div>
+  <div class="slide-num">05 / 10</div>
+
+  <div class="tag">Data Foundation</div>
+  <h2>Grounded in real econometric data.</h2>
+  <p class="body">Every output surfaces real data signals — not synthetic proxies. Users see the evidence behind every score.</p>
+
+  <div class="grid-2" style="margin-top: 32px;">
+    <div>
+      <h3 style="margin-bottom: 20px; color: var(--muted);">Data sources used</h3>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <div style="font-weight: 700; margin-bottom: 4px;">ILO ILOSTAT + World Bank WDI</div>
+          <div class="sub">Wage, employment, informality rates. Primary labor signal source for all 4 country packs.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <div style="font-weight: 700; margin-bottom: 4px;">Frey &amp; Osborne (2013) — LMIC-adjusted</div>
+          <div class="sub">Automation probability by occupation task. Adjusted with country-specific calibration factors reflecting infrastructure realities.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <div style="font-weight: 700; margin-bottom: 4px;">Wittgenstein Centre 2025–2035</div>
+          <div class="sub">Education attainment projections by country. Shows where each region is heading — not just where it stands.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <div style="font-weight: 700; margin-bottom: 4px;">ILO ISCO-08 + ESCO</div>
+          <div class="sub">Skills taxonomy backbone. Portable across borders. Multilingual-ready. Usable by employers, governments, and NGOs.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Visible to the user — required by challenge brief</div>
+      <div style="margin-top: 16px;">
+        <div style="padding: 14px; background: rgba(240,192,64,0.06); border-radius: 10px; margin-bottom: 12px;">
+          <div style="font-size: 24px; font-weight: 800; color: var(--gold);">78%</div>
+          <div class="label">Informality rate — Ghana (ILO 2023)</div>
+          <div class="sub">What it means: self-employment is the primary economic pathway, not the exception</div>
+        </div>
+        <div style="padding: 14px; background: rgba(0,180,160,0.06); border-radius: 10px; margin-bottom: 12px;">
+          <div style="font-size: 24px; font-weight: 800; color: var(--teal);">32%</div>
+          <div class="label">Wage-salaried share (WDI 2024)</div>
+          <div class="sub">What it means: formal jobs are scarce — matching must account for informal pathways</div>
+        </div>
+        <div style="padding: 14px; background: rgba(167,139,250,0.06); border-radius: 10px;">
+          <div style="font-size: 16px; font-weight: 700; color: var(--purple);">42% → 61% by 2035</div>
+          <div class="label">Secondary+ attainment (Wittgenstein Centre)</div>
+          <div class="sub">The shifting landscape — skills infrastructure must grow ahead of this wave</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 6: LOCALIZABILITY -->
+<div class="slide">
+  <div class="co-brand">WORLD BANK YOUTH SUMMIT</div>
+  <div class="slide-num">06 / 10</div>
+
+  <div class="tag">Localizability</div>
+  <h2>Same system. Different country. Real outputs shift.</h2>
+  <p class="body">Country-specific parameters are inputs, not hardcoded assumptions. Switch the pack — everything reconfigures.</p>
+
+  <div style="margin-top: 36px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+    {[
+      ["Ghana 🇬🇭", "78%", "32%", "0.85×", "#F0C040"],
+      ["Kenya 🇰🇪", "73%", "29%", "1.00×", "#00B4A0"],
+      ["Bangladesh 🇧🇩", "85%", "45%", "1.10×", "#A78BFA"],
+      ["Nigeria 🇳🇬", "80%", "22%", "0.90×", "#4ADE80"]
+    ].map(() => null)}
+
+    <div class="card gold-border">
+      <div style="font-size: 20px; margin-bottom: 8px;">🇬🇭 Ghana</div>
+      <div class="label">Sub-Saharan Africa</div>
+      <div class="signal-row"><span class="muted">Informality</span><span class="gold">78%</span></div>
+      <div class="signal-row"><span class="muted">Wage-salaried</span><span style="color: var(--teal);">32%</span></div>
+      <div class="signal-row"><span class="muted">Auto. factor</span><span style="color: var(--purple);">0.85×</span></div>
+    </div>
+    <div class="card teal-border">
+      <div style="font-size: 20px; margin-bottom: 8px;">🇰🇪 Kenya</div>
+      <div class="label">East Africa</div>
+      <div class="signal-row"><span class="muted">Informality</span><span class="red">73%</span></div>
+      <div class="signal-row"><span class="muted">Wage-salaried</span><span style="color: var(--teal);">29%</span></div>
+      <div class="signal-row"><span class="muted">Auto. factor</span><span style="color: var(--purple);">1.00×</span></div>
+    </div>
+    <div class="card" style="border-color: rgba(167,139,250,0.2);">
+      <div style="font-size: 20px; margin-bottom: 8px;">🇧🇩 Bangladesh</div>
+      <div class="label">South Asia</div>
+      <div class="signal-row"><span class="muted">Informality</span><span class="red">85%</span></div>
+      <div class="signal-row"><span class="muted">Wage-salaried</span><span style="color: var(--teal);">45%</span></div>
+      <div class="signal-row"><span class="muted">Auto. factor</span><span style="color: var(--red);">1.10×</span></div>
+    </div>
+    <div class="card" style="border-color: rgba(74,222,128,0.2);">
+      <div style="font-size: 20px; margin-bottom: 8px;">🇳🇬 Nigeria</div>
+      <div class="label">West Africa</div>
+      <div class="signal-row"><span class="muted">Informality</span><span class="red">80%</span></div>
+      <div class="signal-row"><span class="muted">Wage-salaried</span><span style="color: var(--teal);">22%</span></div>
+      <div class="signal-row"><span class="muted">Auto. factor</span><span style="color: var(--purple);">0.90×</span></div>
+    </div>
+  </div>
+
+  <div style="margin-top: 28px; padding: 20px 24px; background: var(--s1); border-radius: 14px;">
+    <div class="label" style="margin-bottom: 12px;">Configurable without changing a single line of code</div>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+      {["Labor market data source", "Education taxonomy", "UI language", "Automation calibration", "Opportunity types", "Wage floors"].map(s => s)}
+      <span style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 6px 14px; font-size: 13px; color: var(--muted);">Labor market data source</span>
+      <span style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 6px 14px; font-size: 13px; color: var(--muted);">Education taxonomy</span>
+      <span style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 6px 14px; font-size: 13px; color: var(--muted);">UI language / script</span>
+      <span style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 6px 14px; font-size: 13px; color: var(--muted);">Automation calibration factor</span>
+      <span style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 6px 14px; font-size: 13px; color: var(--muted);">Opportunity types surfaced</span>
+      <span style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 6px 14px; font-size: 13px; color: var(--muted);">Wage floors &amp; sectors</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7: SKILLS PASSPORT -->
+<div class="slide">
+  <div class="co-brand">WORLD BANK YOUTH SUMMIT</div>
+  <div class="slide-num">07 / 10</div>
+
+  <div class="tag">Output</div>
+  <h2>The Skills Passport.</h2>
+  <p class="body">Portable, shareable, human-readable. Amara can own it. An employer, NGO, or training provider can read it across borders.</p>
+
+  <div style="margin-top: 36px; max-width: 640px;">
+    <div class="passport-preview">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
+        <div>
+          <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px;">UNMAPPED Skills Passport</div>
+          <div style="font-size: 22px; font-weight: 800; color: var(--gold); font-style: italic;">"Skilled technician, self-taught, multilingual, market-ready"</div>
+          <div style="font-size: 13px; color: var(--dim); margin-top: 6px;">🇬🇭 Ghana · Sub-Saharan Africa · Urban informal</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 11px; color: var(--dim);">ISCO-08</div>
+          <div style="font-size: 16px; font-weight: 700; color: var(--purple);">7421</div>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px; margin-bottom: 20px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+          <span class="tag teal-tag" style="margin-bottom: 0;">Device Repair &amp; Maintenance</span>
+          <span class="tag" style="color: var(--green); background: rgba(74,222,128,0.1); border-color: rgba(74,222,128,0.2); margin-bottom: 0;">Digital Literacy</span>
+          <span class="tag teal-tag" style="margin-bottom: 0;">Multilingual Communication</span>
+          <span class="tag" style="color: var(--purple); background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.2); margin-bottom: 0;">Micro-enterprise</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+          <div>
+            <div style="font-size: 11px; color: var(--dim);">Automation risk</div>
+            <div style="font-size: 22px; font-weight: 800; color: var(--gold);">34%</div>
+          </div>
+          <div>
+            <div style="font-size: 11px; color: var(--dim);">Informality rate</div>
+            <div style="font-size: 22px; font-weight: 800; color: var(--red);">78%</div>
+          </div>
+          <div>
+            <div style="font-size: 11px; color: var(--dim);">Best pathway fit</div>
+            <div style="font-size: 22px; font-weight: 800; color: var(--green);">92%</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size: 11px; color: var(--dim);">ILO ILOSTAT 2023 · World Bank WDI 2024 · Frey-Osborne LMIC-adjusted · Wittgenstein Centre</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8: COMPETITIVE EDGE -->
+<div class="slide">
+  <div class="co-brand">WORLD BANK YOUTH SUMMIT</div>
+  <div class="slide-num">08 / 10</div>
+
+  <div class="tag">Our Edge</div>
+  <h2>Explainability. Localizability. Realism.</h2>
+
+  <div class="grid-2" style="margin-top: 32px;">
+    <div>
+      <div class="card gold-border" style="margin-bottom: 20px;">
+        <div class="label gold">What we do differently</div>
+        <div class="step" style="margin-top: 16px; margin-bottom: 0;">
+          <div class="step-num">✓</div>
+          <div><strong>Show the data.</strong> Every score links to a named dataset the user can see.</div>
+        </div>
+        <div class="step" style="margin-bottom: 0;">
+          <div class="step-num">✓</div>
+          <div><strong>Design for constraint.</strong> Low bandwidth. Shared devices. Incomplete credentials.</div>
+        </div>
+        <div class="step" style="margin-bottom: 0;">
+          <div class="step-num">✓</div>
+          <div><strong>Localizability with evidence.</strong> Live country switch in the demo — same code, different outputs.</div>
+        </div>
+        <div class="step" style="margin-bottom: 0;">
+          <div class="step-num">✓</div>
+          <div><strong>Honest about limits.</strong> Matching is grounded, not aspirational. Risk is calibrated, not generic.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card red-border">
+        <div class="label red">What we deliberately didn't build</div>
+        <div style="margin-top: 16px; display: grid; gap: 12px;">
+          <div style="display: flex; gap: 10px; font-size: 14px; color: var(--muted);">
+            <span class="red">✗</span> Full country data ingestion pipeline
+          </div>
+          <div style="display: flex; gap: 10px; font-size: 14px; color: var(--muted);">
+            <span class="red">✗</span> Complex employer marketplace
+          </div>
+          <div style="display: flex; gap: 10px; font-size: 14px; color: var(--muted);">
+            <span class="red">✗</span> Live labor-market API scraping
+          </div>
+          <div style="display: flex; gap: 10px; font-size: 14px; color: var(--muted);">
+            <span class="red">✗</span> Multi-role government admin dashboard
+          </div>
+        </div>
+        <div style="margin-top: 16px; padding: 14px; background: rgba(255,107,107,0.06); border-radius: 10px; font-size: 14px; color: #8899BB;">
+          These are Sprint 2. A tight, explainable prototype is more persuasive than a broad, shallow platform.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9: DEMO FLOW -->
+<div class="slide">
+  <div class="co-brand">WORLD BANK YOUTH SUMMIT</div>
+  <div class="slide-num">09 / 10</div>
+
+  <div class="tag">Demo</div>
+  <h2>Four questions. One demo. Clear answers.</h2>
+
+  <div style="margin-top: 36px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+    <div class="card gold-border">
+      <div class="label gold">Question 1</div>
+      <h3 class="gold">What skills does this person really have?</h3>
+      <p class="sub" style="margin-top: 8px;">→ Skills Signal Engine maps informal experience to ISCO-08. Amara sees a human-readable portable profile she can own.</p>
+    </div>
+    <div class="card red-border">
+      <div class="label red">Question 2</div>
+      <h3 class="red">What is at risk from automation?</h3>
+      <p class="sub" style="margin-top: 8px;">→ AI Readiness Lens shows durable vs. exposed skills. Frey-Osborne, calibrated for Ghana. Honest. Specific. Actionable.</p>
+    </div>
+    <div class="card teal-border">
+      <div class="label" style="color: var(--teal);">Question 3</div>
+      <h3 class="teal">What opportunities are realistic now?</h3>
+      <p class="sub" style="margin-top: 8px;">→ 3 grounded pathways, each with a visible econometric signal, a fit score, and a concrete next step.</p>
+    </div>
+    <div class="card" style="border-color: rgba(167,139,250,0.2);">
+      <div class="label purple">Question 4</div>
+      <h3 class="purple">How does this change by country?</h3>
+      <p class="sub" style="margin-top: 8px;">→ Live switch from Ghana → Bangladesh → Nigeria. Same code. Different country pack. All outputs shift in real time.</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 32px; padding: 16px 24px; background: rgba(240,192,64,0.05); border-left: 3px solid var(--gold); border-radius: 0 12px 12px 0; font-size: 16px; color: #A8B8CC;">
+    If the demo answers those four questions clearly — it is a strong hackathon submission.
+  </div>
+</div>
+
+<!-- SLIDE 10: CLOSE -->
+<div class="slide slide-cover">
+  <div class="co-brand">WORLD BANK YOUTH SUMMIT · MIT CLUB COLLABORATION</div>
+  <div class="slide-num">10 / 10</div>
+
+  <div class="logo">UNMAPPED</div>
+  <div style="height: 32px;"></div>
+
+  <h1 style="font-size: 40px; max-width: 700px;">The countries that build open skills infrastructure today determine who benefits from the next decade.</h1>
+
+  <div style="margin-top: 40px; display: flex; gap: 48px; flex-wrap: wrap;">
+    <div>
+      <div class="big-num gold" style="font-size: 40px;">600M+</div>
+      <div class="label">Young people invisible to formal economy</div>
+    </div>
+    <div>
+      <div class="big-num" style="font-size: 40px; color: var(--teal);">4</div>
+      <div class="label">Countries. Same codebase. Live demo.</div>
+    </div>
+    <div>
+      <div class="big-num" style="font-size: 40px; color: var(--green);">3</div>
+      <div class="label">Modules. Real data. Honest outputs.</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 48px; padding: 24px; background: rgba(240,192,64,0.06); border: 1px solid rgba(240,192,64,0.2); border-radius: 16px; max-width: 600px;">
+    <div class="label" style="margin-bottom: 8px;">Pitch line</div>
+    <div style="font-size: 18px; color: #C8D8E8; font-style: italic; line-height: 1.5;">
+      "UNMAPPED is a config-driven skills infrastructure layer that turns invisible youth capability into portable signals and realistic opportunity paths using local data."
+    </div>
+  </div>
+
+  <div style="margin-top: 32px; font-size: 13px; color: var(--dim);">
+    Data: ILO ILOSTAT · World Bank WDI · Frey &amp; Osborne (2013) · Wittgenstein Centre 2025–2035 · ILO ISCO-08 · ESCO
+  </div>
+</div>
+
+</div>
+</body>
+</html>
